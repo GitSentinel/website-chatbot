@@ -10,7 +10,7 @@ export const ChatWrapper = ({ sessionId }: { sessionId: string }) => {
   });
 
   return (
-    <div className="relative min-h-full bg-zinc-900 divide-y divide-zinc-700 flex flex-col justify-between gap-2">
+    <div className="relative min-h-full bg-zinc-900 divide-y divide-zinc-700 flex flex-col justify-between gap-2 ">
       <div className="flex-1 text-black bg-zinc-800 justify-between flex flex-col">
         <Messages messages={messages} />
       </div>

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Bot, User } from "lucide-react";
 
 interface MessageProps {
   content: string;
@@ -22,7 +23,25 @@ export const Message = ({ content, isUserMessage }: MessageProps) => {
                 "bg-blue-950 border-blue-700 text-zinc-200": isUserMessage,
               }
             )}
-          ></div>
+          >
+            {isUserMessage ? (
+              <User className="size-5" />
+            ) : (
+              <Bot className="size-5 text-white" />
+            )}
+          </div>
+
+          <div className="flex flex-col ml-6 w-full">
+            <div className="flex items-center space-x-2">
+              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                {isUserMessage ? "You" : "Website"}
+              </span>
+            </div>
+
+            <p className="text-sm font-normal py-2.5 dark:text-white text-gray-900">
+              {content}
+            </p>
+          </div>
         </div>
       </div>
     </div>
