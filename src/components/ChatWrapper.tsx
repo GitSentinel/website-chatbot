@@ -5,10 +5,11 @@ import { Messages } from "./Messages";
 import { ChatInput } from "./ChatInput";
 
 export const ChatWrapper = ({ sessionId }: { sessionId: string }) => {
-  const { messages, handleInputChange, input, handleSubmit } = useChat({
-    api: "/api/chat-stream",
-    body: { sessionId },
-  });
+  const { messages, handleInputChange, input, handleSubmit, setInput } =
+    useChat({
+      api: "/api/chat-stream",
+      body: { sessionId },
+    });
 
   return (
     <div className="relative min-h-full bg-zinc-900 divide-y divide-zinc-700 flex flex-col justify-between gap-2 ">
@@ -16,7 +17,12 @@ export const ChatWrapper = ({ sessionId }: { sessionId: string }) => {
         <Messages messages={messages} />
       </div>
 
-      <ChatInput />
+      <ChatInput
+        input={input}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        setInput={setInput}
+      />
     </div>
   );
 };
